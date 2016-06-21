@@ -19,6 +19,9 @@ body {
 	margin: 0 auto;
 }
 
-span {
-	color: white;
+nav {
+	background: white;
+	height: 30px;
+	text-align: center;
+	color: black;
 }
