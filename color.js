@@ -14,7 +14,7 @@ var hardBtn = document.querySelector("#hardBtn");
 easyBtn.addEventListener("click", function(){
 	hardBtn.classList.remove("selected");
 	easyBtn.classList.add("selected");
-	h1.style.background = "#232323";
+	h1.style.background = "steelblue";
 	numSquares = 3;
 	colors = generateRandomColors(numSquares);
 	pickedColor = pickColor();
@@ -32,7 +32,7 @@ easyBtn.addEventListener("click", function(){
 hardBtn.addEventListener("click", function(){
 	easyBtn.classList.remove("selected");
 	hardBtn.classList.add("selected");
-	h1.style.background = "#232323";
+	h1.style.background = "steelblue";
 	numSquares = 6;
 	colors = generateRandomColors(numSquares);
 	pickedColor = pickColor();
@@ -52,7 +52,7 @@ resetButton.addEventListener("click", function(){
 	for(var i = 0; i < squares.length; i++) {
 		squares[i].style.background = colors[i];
 	}
-	h1.style.background = "#232323";
+	h1.style.background = "steelblue";
 });
 
 
