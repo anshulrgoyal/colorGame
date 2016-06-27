@@ -1,3 +1,6 @@
+/* The Great RGB Color Game by Colt Steele (http://https://www.udemy.com/the-web-developer-bootcamp)*/
+
+
 body {
 	background-color: #232323;
 	margin: 0;
@@ -66,6 +69,7 @@ button {
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
 	-moz-transition: all 0.4s;
+	outline: none;
 }
 
 button:hover {

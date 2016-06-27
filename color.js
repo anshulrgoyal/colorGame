@@ -1,3 +1,5 @@
+ // The Great RGB Color Game by Colt Steele (http://https://www.udemy.com/the-web-developer-bootcamp)
+
 var numSquares = 6;
 var colors = generateRandomColors(numSquares);
 
@@ -7,57 +9,30 @@ var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
-var easyBtn = document.querySelector("#easyBtn");
-var hardBtn = document.querySelector("#hardBtn");
+var modeButtons = document.querySelectorAll(".mode");
 
+for(var i = 0;i < modeButtons.length; i++){
+	modeButtons[i].addEventListener("click", function(){
+		modeButtons[0].classList.remove("selected");
+		modeButtons[1].classList.remove("selected");
+		this.classList.add("selected");
 
-easyBtn.addEventListener("click", function(){
-	hardBtn.classList.remove("selected");
-	easyBtn.classList.add("selected");
-	h1.style.background = "steelblue";
-	numSquares = 3;
-	colors = generateRandomColors(numSquares);
-	pickedColor = pickColor();
-	colorDisplay.textContent = pickedColor;
-	for (var i = 0; i < squares.length; i++) {
-		if(colors[i]) {
-			squares[i].style.background = colors[i];
+		if( this.textContent === "Easy"){
+			numSquares = 3;
 		} else {
-			squares[i].style.display = "none";
+			numSquares = 6;
 		}
-	}
-});
-
-
-hardBtn.addEventListener("click", function(){
-	easyBtn.classList.remove("selected");
-	hardBtn.classList.add("selected");
-	h1.style.background = "steelblue";
-	numSquares = 6;
-	colors = generateRandomColors(numSquares);
-	pickedColor = pickColor();
-	colorDisplay.textContent = pickedColor;
-	for (var i = 0; i < squares.length; i++) {
-			squares[i].style.background = colors[i];
-			squares[i].style.display = "block";
-	}
-});
+		reset();
+	});
+}
 
 
 resetButton.addEventListener("click", function(){
-	colors = generateRandomColors(numSquares);
-	pickedColor = pickColor();
-	colorDisplay.textContent = pickedColor;
-
-	for(var i = 0; i < squares.length; i++) {
-		squares[i].style.background = colors[i];
-	}
-	h1.style.background = "steelblue";
+	reset();
 });
 
 
 colorDisplay.textContent = pickedColor;
-
 
 for(var i = 0; i < squares.length; i++) {
 	// add initial colors
@@ -77,6 +52,25 @@ for(var i = 0; i < squares.length; i++) {
 			messageDisplay.textContent = "Try Again";
 		}
 	});
+}
+
+
+function reset(){
+	colors = generateRandomColors(numSquares);
+	pickedColor = pickColor();
+	colorDisplay.textContent = pickedColor;
+
+	for(var i = 0; i < squares.length; i++) {
+		if(colors[i]){
+			squares[i].style.display = "block";
+			squares[i].style.background = colors[i];
+		} else {
+			squares[i].style.display = "none";
+		}
+	}
+	h1.style.background = "steelblue";
+	messageDisplay.textContent = "";
+	resetButton.textContent = "New Colors";
 }
 
 
